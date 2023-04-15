@@ -12,21 +12,21 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-  steps:
-    - task: DotNetCoreCLI@2
-      displayName: 'Restore dependencies'
-      inputs:
-        command: 'restore'
-        projects: '**/*.csproj'
-        feedsToUse: 'select'
-        vstsFeed: 'myfeeds.vsts.com'
-        includeNuGetOrg: true
-    
-    - task: DotNetCoreCLI@2
-      displayName: 'Build project'
-      inputs:
-        command: 'build'
-        projects: '**/*.csproj'
-        arguments: '--configuration $(buildConfiguration)'
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Restore dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: 'myfeeds.vsts.com'
+    includeNuGetOrg: true
+  
+- task: DotNetCoreCLI@2
+  displayName: 'Build project'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
     
 
