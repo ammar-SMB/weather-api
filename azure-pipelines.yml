@@ -39,6 +39,15 @@ steps:
     publishWebProjects: true
     zipAfterPublish: true
 
+- task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy to Azure App Service'
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'edbd7ff0-65de-40a0-a204-68c1d97a3a9e'
+    appType: 'webAppLinux'
+    WebAppName: 'arzweb.azurewebsites.net'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
