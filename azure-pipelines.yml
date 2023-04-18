@@ -14,7 +14,7 @@ variables:
 
 steps:
 - script: echo CI/CD WebAPI!
-  displayName: 'Beging CI/CD'
+  displayName: 'Begining CI/CD'
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore dependencies'
