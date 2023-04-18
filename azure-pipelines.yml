@@ -9,9 +9,26 @@ trigger:
 pool:
   name: default
 
+variables:
+  buildConfiguration: 'Release'
+
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: echo CI/CD WebAPI!
+  displayName: 'Beging CI/CD'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    includeNuGetOrg: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build project'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
