@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'arzweb'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0D11A2C72C2C45D3996A1E4F010F9115 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4C847034A25346D3BEDD80734A966F71 }}
           package: .
